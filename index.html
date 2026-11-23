@@ -296,7 +296,7 @@ footer{background:var(--navy-2);color:#a9b6d8;padding:60px 0 40px;font-size:.92r
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:70px 16px;background:rgba(8,16,38,.95);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
 .lb.open{opacity:1;visibility:visible}
-.lb img{max-width:100%;max-height:calc(100vh - 140px);border-radius:16px;transform:scale(.94);transition:transform .5s var(--ease-out)}
+.lb img{width:auto;height:auto;max-width:100%;max-height:calc(100vh - 140px);border-radius:16px;transform:scale(.94);transition:transform .5s var(--ease-out)}
 .lb.open img{transform:none}
 .lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:1.6rem;cursor:pointer}
 .lb .x{top:16px;right:16px}.lb .pv{left:14px;top:50%;margin-top:-24px}.lb .nx{right:14px;top:50%;margin-top:-24px}
@@ -607,7 +607,7 @@ const SEKOLAH = {
   alamat: "Jl. Pratu Made Rambug, Br. Sasih, Batubulan, Sukawati, Gianyar, Bali 80582",
   cariDiMaps: "SD Wirya Sedana, Batubulan, Sukawati, Gianyar, Bali",
   linkMaps: "",
-  telepon: "",
+  telepon: "6281337691257",
   email: "",
   instagram: "",
   visi: "Unggul dalam Prestasi Belajar, Menjunjung Tinggi Budaya dan Berbudi Pekerti Luhur.",
@@ -634,7 +634,9 @@ const SEKOLAH = {
   ],
   galeri: [
     { foto: "images/kegiatan-1.jpg", ket: "Kegiatan pagi di halaman sekolah" },
-    { foto: "images/kegiatan-2.jpg", ket: "Petugas upacara bendera" }
+    { foto: "images/kegiatan-2.jpg", ket: "Petugas upacara bendera" },
+    { foto: "images/kegiatan-3.jpg", ket: "Latihan musik pianika" },
+    { foto: "images/kegiatan-4.jpg", ket: "Upacara bendera di halaman sekolah" }
   ]
 };
 
@@ -704,7 +706,7 @@ if (S.galeri.length){
 const mapsLink = S.linkMaps || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(S.cariDiMaps)}`;
 $(".js-maps").href = mapsLink;
 if (S.telepon){
-  const t = $(".js-tel"); t.textContent = "+" + S.telepon.replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/, "$1 $2-$3-$4"); t.href = `https://wa.me/${S.telepon}`; t.target = "_blank";
+  const t = $(".js-tel"); t.textContent = "+" + S.telepon.replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/, "$1 $2-$3-$4"); t.href = `tel:+${S.telepon}`;
   $(".js-row-tel").hidden = false;
   const w = $(".js-wa"); w.hidden = false; w.href = `https://wa.me/${S.telepon}?text=${encodeURIComponent("Halo " + S.nama + ", saya ingin bertanya informasi tentang sekolah.")}`;
 }
